@@ -1,0 +1,483 @@
+// for table
+
+.tableFixHead {
+	overflow-y: auto;
+	max-height: 500px;
+}
+  
+.tableFixHead thead {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+}
+.table tbody tr td {
+	word-break: break-word;
+}
+td:first-child, th:first-child {
+	position:sticky;
+	left:0;
+	z-index:1;
+}
+td:nth-child(2),th:nth-child(2)  { 
+  position:sticky;
+	left:60px;
+	z-index:1;
+}
+td:nth-child(3),th:nth-child(3)  { 
+	position:sticky;
+	  left:210px;
+	  z-index:1;
+}
+// Here you can add other styles
+.text-align-center{
+	text-align: center;
+}
+.text-align-right{
+	text-align: end;
+}
+.login-background-image{
+	background-image: url(/image/login-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.login-card-design{
+	background: white;
+	width: 31%;
+	height: 100vh;
+	background-color: #000000;
+	box-shadow: 0px 2px 22px -7px #b3aeae;
+}
+.title{
+	text-align: center;
+	font-family: Serif;
+	color: white;
+}
+.title2{
+	text-align: center;
+	font-family: monospace;
+	color: #ccccccdb;
+	margin-top: -13px;
+}
+.login-button{
+	background: rgb(225 4 4);
+	border-color: rgb(225 4 4);
+	width: 120px;
+	color: white;
+}
+.login-button:hover{
+	background-color: #b75636 !important;
+}
+.forgot-password-link{
+	color: #212631;
+}
+.label{
+	font-size: 17px;
+}
+.success {
+	color: white;
+	background-color: #6edabc;
+	border: 1px solid #6edabc !important;
+	border-radius: 10px;
+}
+.error {
+	color: white;
+	background-color: #f36d64;
+	border: 1px solid #f78c84 !important;
+	border-radius: 10px;
+}
+.success-error-label{
+	padding-bottom: 5px;
+	padding-left: 20px;
+}
+.width100{
+	width: 100%;
+}
+.total-row{
+	color: #249542;
+	  font-size: 15px;
+	  font-weight: bold;
+
+}
+#overlay {
+	z-index: 2000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #adb5bd;
+	opacity: 0.5;
+  }
+  #overlay div {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+  }
+.shapeshifter {
+	animation-duration: 800ms; // 800 ms
+	animation-timing-function: steps(60);
+	width: 140px !important;
+	height: 140px !important;
+	background-repeat: no-repeat;
+	background-position: center;
+  }
+  .shapeshifter.play {
+	animation-name: play60;
+	animation-iteration-count: infinite;
+  }
+  
+.container-lg{
+	max-width: 100% !important;
+}
+.margin-left-0{
+	margin-left: 0;
+}
+
+.accordion-button{
+	border: var(--cui-border-width) solid var(--cui-border-color);
+	box-shadow: 0px 0px 10px -3px gray;
+	border-radius: 10px !important;
+}
+.accordion-button:focus {
+	box-shadow: 0px 0px 10px -3px gray !important;
+}
+.shpping-list-table-hearder{
+	// background: #22507f;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	// border-radius: 5px;
+	// border-bottom: 1px solid #806f6f87;
+}
+.shpping-list-table-body{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #806f6f87;
+}
+.accordion-collapse{
+	box-shadow: 0px 0px 10px -3px gray;
+	border-bottom-left-radius: 10px !important;
+	border-bottom-right-radius: 10px !important;
+}
+.shpping-list-table-total{
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.accordion-button:not(.collapsed) {
+	color: unset !important;
+	background-color: unset !important;
+	box-shadow: 0px 0px 10px -3px gray !important;
+}
+.accordion-button:not(.collapsed)::after {
+	background-image: var(--cui-accordion-btn-icon) !important;
+}
+
+.setting-fieldset{
+	box-shadow: 0px 0px 10px -3px gray !important;
+	border-radius: 10px;
+}
+.setting-fieldset-hearder{
+	width: 200px;
+	margin-top: -30px;
+	background: #c5abff;
+	border: 1px solid #c5abff;
+	color: black;
+}
+  
+.form-check-label {
+	margin-left: 10px;
+}
+.form-switch-xl .form-check-input {
+	width: 3em !important;
+}
+.setting-fieldset-hearder:hover {
+	color: black;
+	background-color: #c5abff;
+	border-color: #c5abff;
+}
+.display-flex{
+	display: flex;
+}
+
+.discount-span{
+	vertical-align: text-bottom;
+	margin-left: 10px;
+	font-size: 20px;
+	color: red;
+	font-weight: bold;
+
+}
+
+.discount1-span{
+	vertical-align: text-bottom;
+	margin-left: 10px;
+	font-size: 17px;
+	color: white;
+	font-weight: bold;
+}
+
+@media screen {
+	.yourClassName {
+		visibility: hidden;
+		display: none;
+	}
+}
+
+// autocomplete  css
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
+	color: var(--cui-body-color) !important;
+	height: 38px !important;
+	background-color: var(--cui-body-bg) !important;
+	background-clip: padding-box !important;
+	border: var(--cui-border-width) solid var(--cui-border-color) !important;
+	border-radius: var(--cui-border-radius) !important;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+	display: none !important;
+}
+
+.react-datepicker__input-container input {
+	border: none; /* Remove border from the input field */
+	outline: none; /* Remove focus outline */
+  }
+  
+  /* Optionally, you can add custom styles for the input */
+  .react-datepicker__input-container input {
+	padding: 8px; /* Add some padding */
+	border-radius: 4px; /* Optional: Add rounded corners */
+	background-color: var(--cui-body-bg);
+	border-color: #acabeb;
+	border: var(--cui-border-width) solid var(--cui-border-color);
+  }
+  
+  /* Remove border on the calendar */
+  .react-datepicker {
+	border: none; /* Remove border from the date picker */
+	box-shadow: none; /* Remove any shadow */
+  }
+  
+  /* Optional: Customize the calendar appearance */
+  .react-datepicker__header {
+	background-color: #007bff; /* Change header background color */
+	border-bottom: none; /* Remove bottom border */
+  }
+  
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range,
+  .react-datepicker__day--in-range {
+	background-color: #007bff; /* Change selected day background color */
+	color: white; /* Change selected day text color */
+  }
+  
+  /* Customize the calendar input focus */
+  .react-datepicker__input-container input:focus {
+	box-shadow: 0 0 0 0.25rem rgba(88, 86, 214, 0.25);
+	border-color: #acabeb;
+  }
+  .react-datepicker-popper{
+	z-index: 4 !important;
+  }
+  .bill-sale-card{
+	background: #2a303d;
+	margin-left: 0px;
+	margin-right: 0px;
+	border-radius: 10px;
+  }
+
+
+// ---------------------------------------
+.btn-color{
+	background: #212631;
+	color: white;
+}
+.btn:hover {
+	color: rgb(0, 0, 0) !important;
+	background-color: rgb(221, 221, 221) !important;
+	border-color: rgb(221, 221, 221) !important;
+}
+.not-allow{
+	cursor: not-allowed !important;
+}
+.rate-card-row1{
+	background: #397584;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+
+.rate-card2-row1{
+	background: #cf5353;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+.rate-card3-row1{
+	background: #2793a2;
+	height: 50px;
+	text-align: center;
+	color: white;
+}
+
+.rate-card-row2-dashboard{
+	height: 110px;
+	text-align: center;
+}
+.account-rate-card-row2-dashboard{
+	height: 50px;
+	text-align: center;
+}
+.rate-card{
+	box-shadow: 1px 1px 6px 1px #bdbcbc !important;
+}
+.rate-card-row2-col-dashboard{
+	margin-top: 6px;
+	font-size: 20px;
+	color: #5b5b5b;
+	text-align: left !important;
+	margin-left: 5px !important;
+}
+
+.rate-card-row2{
+	height: 40px;
+	text-align: center;
+}
+
+.rate-card-row2-col{
+	margin-top: 6px;
+	font-size: 20px;
+	color: #5b5b5b;
+	font-weight: bold;
+}
+
+.account-card-header1 .card-header{
+	background: #546fed !important;
+	height: 100px !important;
+	font-size: 40px;
+	font-family: monospace;
+	color: white !important;
+}
+
+.account-card-header2 .card-header{
+	background: #2bb2a6 !important;
+	height: 100px !important;
+	font-size: 40px;
+	font-family: monospace;
+	color: white !important;
+}
+
+.card-header1 .card-header {
+	background: #bba035 !important;
+}
+.card-header2 .card-header {
+	background: #546fed !important;
+}
+.card-header3 .card-header {
+	background: #2bb2a6 !important;
+}
+
+.admin-card-header{
+	background: #d9d9d9 !important;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.top-left-right-radius-5{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.admin-card-body{
+	font-size: 15px;
+	margin-left: 5px;
+	color: #000000;
+}
+
+.card-shadow{
+	box-shadow: 1px 1px 7px 0px gray;
+}
+.transaction-list-table{
+	width: 1950px;
+	min-width: 100% !important;
+}
+
+.match-list-table{
+	width: 1350px;
+	min-width: 100% !important;
+}
+
+.custom-header {
+	background-color: #00456d !important; /* Blue */
+	color: white !important; /* White text */
+	text-align: center;
+}
+.history-table{
+	width: 760px;
+	min-width: 100% !important;
+}
+[data-coreui-theme="dark"] {
+	display: none !important;
+  }
+  
+  [data-coreui-theme="light"] {
+	display: block;
+  }
+  .header.header-sticky {
+	background: #212631 !important;
+}
+.header-toggler{
+	color: white !important;
+}
+.white-color{
+	color: white !important;
+}
+.dashboard-card2-body-border-top{
+	border-top: 1px solid #bdbdbd !important;
+}
+
+.text-color-white{
+	color: white !important;
+}
+
+.win{
+	font-weight: 400;
+	background: #3fe863;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 13px;
+	font-size: 15px;
+	color: #050505;
+}
+.lose{
+	font-weight: 400;
+	background: #e55c5c;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 13px;
+	font-size: 15px;
+	color: #ffffff;
+}
+.draw{
+	font-weight: 400;
+	background: #e4e4e4;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 13px;
+	font-size: 15px;
+	color: #050505;
+}
+
+.account-list-table{
+	width: 940px;
+	min-width: 100% !important;
+}
+.account-card-header3 .card-header {
+	background: #85b348 !important;
+	height: 100px !important;
+	font-size: 40px;
+	font-family: monospace;
+	color: white !important;
+}
