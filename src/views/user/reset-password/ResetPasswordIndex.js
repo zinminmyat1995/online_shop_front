@@ -144,7 +144,7 @@ const ResetPasswordIndex = () => {
 				<CRow className="mt-4 mb-5">
 					<CCol lg="5"></CCol>
 					<CCol lg="4 text-align-center">
-						<CButton color="success"  onClick={() => updateClick()}  style={{width: "100px"}}>Update</CButton>
+						<CButton className="login-button"   onClick={() => updateClick()}  style={{width: "100px"}}>Update</CButton>
 					</CCol>
 					<CCol lg="3"></CCol>
 				</CRow>

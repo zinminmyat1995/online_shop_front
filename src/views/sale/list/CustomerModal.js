@@ -28,7 +28,7 @@ const CustomerModal = props => {
 							<tr>
 								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="60px" >No</th>
 								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="160px">Product Name</th>
-								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="160px">Product Category</th>
+								<th className="bg-body-tertiary sale-voucher-table-3" style={{verticalAlign: "middle"}} width="160px">Product Category</th>
 								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="160px">Gender Status</th>
 								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="180px">Country of manufacture</th>
 								<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="125px">Price</th>
@@ -42,7 +42,7 @@ const CustomerModal = props => {
 								<tr key={index}>
 									<td>{index + 1}</td>
 									<td>{item.p_name}</td>
-									<td>{item.p_category_name}</td>
+									<td className='sale-voucher-table-3'>{item.p_category_name}</td>
 									<td>{item.p_gender == 0? "Both" : item.p_gender == 1? "Male" : "Female"}</td>
 									<td>{item.p_made_in}</td>
 									<td>{item.price}</td>

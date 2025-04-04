@@ -238,7 +238,7 @@ const ListIndex = () => {
 			/>
 			<Message success={success} error={error} />
 			<CRow className="mt-5">
-				<CCol lg="1" className="text-align-center">
+				<CCol lg="1" className="">
 					<p className="label">Date</p>
 				</CCol>
 				<CCol lg="2">
@@ -250,7 +250,7 @@ const ListIndex = () => {
 						className="date-picker-css"
 					  />
 				</CCol>
-				<CCol lg="1" className="text-align-center">
+				<CCol lg="1" className="center-web-phone">
 					<p className="label" >~</p>
 				</CCol>
 				<CCol lg="2">
@@ -262,8 +262,8 @@ const ListIndex = () => {
 						className="date-picker-css"
 					  />
 				</CCol>
-				<CCol lg="2" className="text-align-center">
-					<CButton color="success" style={{ width: "100px" }} onClick={() => searchClick()}>Search</CButton>
+				<CCol lg="2" className="center-web-phone-btn center-web-phone">
+					<CButton className="login-button" style={{ width: "100px" }} onClick={() => searchClick()}>Search</CButton>
 				</CCol>
 			</CRow>
 
@@ -316,6 +316,8 @@ const ListIndex = () => {
 							</tbody>
 						</table>
 					</div>
+
+				
 					<CRow className="bill-sale-card mt-3">
 						<CCol lg="12" >
 							<CRow className="mt-3">
@@ -323,25 +325,24 @@ const ListIndex = () => {
 									<p className="label">Bill of sale from [{dateFormatChange1(fromDate)} ~ {dateFormatChange1(toDate)}] days</p>
 								</CCol>
 							</CRow>
-							{Object.keys(totalPayment).map((key, index) => (
-									<CRow key={index} >
-										<CCol lg="1">
-											<p className="label" style={{fontStyle: "italic"}}>{key}</p>
-										</CCol>
-										<CCol>
-											<p className="label" style={{fontStyle: "italic"}}>- {totalPayment[key]}</p>
-										</CCol>
-									</CRow>
-							))}
-							<CRow >
-								<CCol lg="1">
-									<p className="label" style={{fontStyle: "italic"}}>Total sales</p>
-								</CCol>
-								<CCol>
-									<p className="label" style={{fontStyle: "italic"}}>- {totalAll}</p>
-								</CCol>
-							</CRow>
-							
+
+							<table className='mb-4'>
+								<tbody >
+
+									{Object.keys(totalPayment).map((key, index) => (
+										<tr key={index}>
+											<td width="70px" >{key}</td>
+											<td width="200px"  >- {totalPayment[key]}</td>	
+										</tr>
+									))}
+									<tr>
+										<td width="100px" >Total sales</td>
+										<td width="100px"  >- {totalAll}</td>	
+									</tr>
+										
+								</tbody>
+							</table>
+			
 						</CCol>
 					</CRow>
 				</>

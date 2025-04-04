@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	CAvatar,
 	CButton,
@@ -33,10 +33,6 @@ import {
 import Loading from "../../common/Loading"
 import DatePicker  from "react-datepicker"
 import 'react-datepicker/dist/react-datepicker.css';
-import * as XLSX from "xlsx";
-import { saveAs } from "file-saver";
-
-
 const HistoryIndex = () => {
 	const [error, setError] = useState([]); // for error message
 	const [success, setSuccess] = useState([]); // for success message
@@ -51,7 +47,10 @@ const HistoryIndex = () => {
 	const [deletedData, setDeletedData ] = useState([]);
 	const [deletedID, setDeletedID ] = useState("");
 	const [loginID , setLoginID ] = useState(localStorage.getItem('LOGIN_ID'));
-
+	const [customerModalShow, setCustomerModalShow ] = useState(false);
+	const [customerModalData, setCustomerModalData ] = useState([]);
+	let totalPayment = [];
+	let totalAll = 0;
 	useEffect(() => {
 		(async () => {
 			if(localStorage.getItem("LOGIN_ID") == undefined){
@@ -131,6 +130,33 @@ const HistoryIndex = () => {
 			}
 		}
 	}
+
+
+	let updateClick =async (id) => {
+		setError([]);setSuccess([]);setLoading(true);
+		let obj = {
+			method: "get",
+			url: ApiPath.SaleListSearchData,
+			params: {
+				"customer_id": id,
+				"login_id": loginID
+			},
+		};
+		let response = await ApiRequest(obj);
+				
+		if (response.flag === false) {
+			setSuccess([]);setLoading(false);setCustomerModalShow(false);
+			setError(response.message);
+		} else {
+			if (response.data.status == "OK") {
+				setCustomerModalData(response.data.data);setCustomerModalShow(true);setLoading(false);
+			}else{
+				setError([response.data.message]);setSuccess([]); setLoading(false);setCustomerModalShow(false);
+				window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+			} 
+		}
+	}
+
 	
 
 	let saveOK =async ()=>{
@@ -200,55 +226,6 @@ const HistoryIndex = () => {
 		return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 	  };
 
-
-	  const tableRef = useRef(null);
-
-	  const handleExportXLSX = () => {
-		if (!tableRef.current) return;
-
-		// Create a new workbook and worksheet
-		const wb = XLSX.utils.book_new();
-		const ws = XLSX.utils.table_to_sheet(tableRef.current);
-    
-		// 🔹 Set column widths
-		ws["!cols"] = [
-		  { wch: 15 }, // Column A width
-		  { wch: 30 }, // Column B width increased
-		  { wch: 30 }, // Column C width increased
-		  { wch: 15 }, // Column C width increased
-		];
-
-		  // 🔹 Apply Header Styles (Works only with `cellStyles: true`)
-		  const headerStyle = {
-			fill: { fgColor: { rgb: "FFFF00" } }, // Yellow background
-			font: { bold: true, color: { rgb: "000000" } }, // Bold text, black color
-			alignment: { horizontal: "center", vertical: "center" }, // Center align
-		  };
-  
-		  // Manually apply styles to header cells
-		  const headerCells = ["A1", "B1", "C1"];
-		  headerCells.forEach((cell) => {
-			if (!ws[cell]) return;
-			ws[cell].s = headerStyle; // Apply style
-		  });
-
-		// Append the worksheet to the workbook
-		XLSX.utils.book_append_sheet(wb, ws, "History");
-
-		// Convert to XLSX and trigger download
-		const excelBuffer = XLSX.write(wb, {
-		  bookType: "xlsx",
-		  type: "array",
-		  cellStyles: true, // Ensure styles are applied
-		});
-
-		const data = new Blob([excelBuffer], {
-		  type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-		});
-
-		saveAs(data, "History.xlsx");
-	  };
-
 	return (
 		<>
 			<Loading start={loading} />
@@ -266,7 +243,7 @@ const HistoryIndex = () => {
 			/>
 			<Message success={success} error={error} />
 			<CRow className="mt-5">
-				<CCol lg="1" className="text-align-center">
+				<CCol lg="1" >
 					<p className="label">Date</p>
 				</CCol>
 				<CCol lg="2">
@@ -278,7 +255,7 @@ const HistoryIndex = () => {
 						className="date-picker-css"
 					  />
 				</CCol>
-				<CCol lg="1" className="text-align-center">
+				<CCol lg="1" className="center-web-phone">
 					<p className="label" >~</p>
 				</CCol>
 				<CCol lg="2">
@@ -290,16 +267,13 @@ const HistoryIndex = () => {
 						className="date-picker-css"
 					  />
 				</CCol>
-				<CCol lg="2" className="text-align-center">
-					<CButton className="btn-color" style={{ width: "100px" }} onClick={() => searchClick()}>Search</CButton>
-				</CCol>
-				<CCol lg="1" className="text-align-center">
-					<CButton className="btn-color" style={{ width: "100px" }} onClick={handleExportXLSX}>Export</CButton>
+				<CCol lg="2" className="center-web-phone-btn center-web-phone">
+					<CButton className="login-button"  style={{ width: "100px" }} onClick={() => searchClick()}>Search</CButton>
 				</CCol>
 			</CRow>
 
 
-			
+
 			{userData.length > 0 &&
 				<>
 					<CRow className="mt-5">
@@ -307,14 +281,14 @@ const HistoryIndex = () => {
 							<label className="total-row">Total - {userData.length}  row(s)</label>
 						</CCol>
 					</CRow>
-					<div className='table-responsive ' ref={tableRef}>
-						<table className='table history-table'>
+					<div className='table-responsive tableFixHead'>
+						<table className='table sale-list-table'>
 							<thead className="text-center">
 								<tr>
-									<th className="custom-header" style={{verticalAlign: "middle"}} width="60px" >No</th>
-									<th className="custom-header" style={{verticalAlign: "middle"}} width="200px">Status</th>
-									<th className="custom-header" style={{verticalAlign: "middle"}} width="300px">Note</th>
-									<th className="custom-header" style={{verticalAlign: "middle"}} width="200px">Date</th>
+									<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="60px" >No</th>
+									<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="200px">Status</th>
+									<th className="bg-body-tertiary sale-voucher-table-3" style={{verticalAlign: "middle"}} width="300px">Note</th>
+									<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="200px">Date</th>
 								</tr>
 							</thead>
 							<tbody className="text-center">
@@ -322,9 +296,11 @@ const HistoryIndex = () => {
 								return(
 									<tr key={index}>
 										<td>{index + 1}</td>
-										<td>{item.type == 1? "Investment Registration" : (item.type == 2? "Transaction Deletion" : ( item.type == 3? "Transfer Currency" : "Sale Currency" ))}</td>
-										<td>{item.note}</td>
+										<td>{item.history_type_name}</td>
+										<td className="sale-voucher-table-3">{item.note}</td>
 										<td>{formatDate(item.updated_at)}</td>
+
+
 									</tr>
 								)})}
 								

@@ -45,18 +45,6 @@ export function checkNullOrBlank(value) {
     return re.test(num);
 }
 
-export const is2Decimal = (value) => {
-    var decimalOnly =/^\s*-?(\d{1,9})(\.\d{0,2})?\s*$/;
-    if(decimalOnly.test(value)) {
-        return true;
-    }
-    return false;
-}
-
-
-
-
-
 /**
  * Explanation or Description of this method
  *
@@ -230,19 +218,4 @@ export const dateFormatChange3 =(val) =>{
 
     let current_date = [year1, month1,day1 ].join('-');
     return  `${current_date} 23:59:59` ;
-}
-
-export const dateFormatChange4 =(val) =>{
-    let date        = new Date(val),
-    month1 = '' + (date.getMonth() + 1),
-    day1 = '' + date.getDate(),
-    year1 = date.getFullYear();
-
-    if (month1.length < 2)
-        month1 = '0' + month1;
-    if (day1.length < 2)
-        day1 = '0' + day1;
-
-    let current_date = [year1, month1, day1].join('-');
-    return  current_date ;
 }

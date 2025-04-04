@@ -571,7 +571,7 @@ const RegistrationIndex = () => {
 							/>
 					</CCol>
 					<CCol lg="2" className="">
-						<p className="label" style={{ marginLeft: "30px" }}>Product Code</p>
+						<p className="label" >Product Code</p>
 					</CCol>
 					<CCol lg="4">
 						<CFormInput type="text" aria-label="sm input example"  value={code} readOnly/>
@@ -586,7 +586,7 @@ const RegistrationIndex = () => {
 						<CFormInput type="text" aria-label="sm input example" value={category} readOnly/>
 					</CCol>
 					<CCol lg="2" className="">
-						<p className="label" style={{ marginLeft: "30px" }}>Gender Status</p>
+						<p className="label" >Gender Status</p>
 					</CCol>
 					<CCol lg="4">
 						<CFormInput type="text" aria-label="sm input example" value={gender === 0? "Both" : gender === 1? "Male" : gender === 2? "Female" : ""} readOnly/>
@@ -600,7 +600,7 @@ const RegistrationIndex = () => {
 						<CFormInput type="text" aria-label="sm input example"  value={madeIn} readOnly/>
 					</CCol>
 					<CCol lg="2" className="">
-						<p className="label" style={{ marginLeft: "30px" }}>Price</p>
+						<p className="label" >Price</p>
 					</CCol>
 					<CCol lg="4">
 						<CFormInput type="text" aria-label="sm input example" value={price} readOnly  />
@@ -615,7 +615,7 @@ const RegistrationIndex = () => {
 						<CFormInput type="text" aria-label="sm input example"  value={count} onChange={importCountChange} />
 					</CCol>
 					<CCol lg="2" className="">
-						<p className="label" style={{ marginLeft: "30px" }}>Total Price</p>
+						<p className="label" >Total Price</p>
 					</CCol>
 					<CCol lg="4">
 						<CFormInput type="text" aria-label="sm input example" value={totalPrice} readOnly />
@@ -640,7 +640,7 @@ const RegistrationIndex = () => {
 
 				<CRow className="mt-5 mb-5 text-align-center">
 					<CCol>
-						<CButton color="success" style={{ width: "100px" }} onClick={() => addClick()}>Add</CButton>
+						<CButton className="login-button" style={{ width: "100px" }} onClick={() => addClick()}>Add</CButton>
 					</CCol>
 				</CRow>
 
@@ -720,7 +720,7 @@ const RegistrationIndex = () => {
 					mainData.length > 0 &&
 					<CRow className="mt-5 mb-5 text-align-center">
 						<CCol>
-							<CButton color="success" style={{ width: "100px" }} onClick={() => nextClick()}>Next</CButton>
+							<CButton className="login-button" style={{ width: "100px" }} onClick={() => nextClick()}>Next</CButton>
 						</CCol>
 					</CRow>
 				}

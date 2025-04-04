@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
-  CFormCheck,
+  CCardBody,
   CCardGroup,
   CCol,
   CContainer,
@@ -27,16 +27,11 @@ const Login = () => {
   const [loading, setLoading] = useState(false);  // for loading
   const [code, setCode] = useState("");
   const [password, setPassword] = useState("");
-  const [loginType , setLoginType ] = useState(0);
 
   useEffect(() => {
     (async () => {
       localStorage.removeItem("LOGIN_ID");
-      localStorage.removeItem("ROLE");
-      localStorage.removeItem("NAME");
-      localStorage.removeItem("LOGIN_TYPE");
     })();
-    localStorage.setItem('coreui-free-react-admin-template-theme', 'light');
   }, []);
 
   let loginClick =async ()=>{
@@ -62,27 +57,18 @@ const Login = () => {
         },
         };
         let response = await ApiRequest(obj);
-
+      
         if (response.flag === false) {
             setLoading(false);
             setError(response.message);
         } else {
-          if (response.data.status == "OK") {
-              localStorage.setItem('LOGIN_ID', code);
-              localStorage.setItem('ROLE', response.data.role);
-              localStorage.setItem('NAME', response.data.name);
-              if(loginType == 0){
-                localStorage.setItem('LOGIN_TYPE', loginType);
-                navigate("/dashboard");
-              }else{
-                localStorage.setItem('LOGIN_TYPE', loginType);
-                navigate("/match/dashboard");
-              }
-              
-          }else{
-            setError([response.data.message]);setLoading(false);
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-          } 
+        if (response.data.status == "OK") {
+            localStorage.setItem('LOGIN_ID', code);
+            navigate("/dashboard");
+        }else{
+          setError([response.data.message]);setLoading(false);
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        } 
         }
     }
     }
@@ -95,10 +81,7 @@ const Login = () => {
         <CRow>
             <CCol md={5} className='login-card-design'>
               <CForm style={{marginTop: "50%"}}>
-                  <img src="image/login-icon.svg" alt="icon" style={{width: "100%"}} />
-                  {/* <h1 className='title'>THE SIX</h1>
-                  <h6 className='title2'>Currency Exchange</h6> */}
-                  
+                  <h1 className='title'>Online Shop</h1>
                   <div style={{marginLeft: "12px",marginRight: "12px"}}>
                     <Message success={success} error={error} />
                   </div>
@@ -108,7 +91,7 @@ const Login = () => {
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput placeholder="Code" autoComplete="username"  value={code} onChange={(e)=>setCode(e.target.value)} />
+                    <CFormInput placeholder="User Code" autoComplete="username"  value={code} onChange={(e)=>setCode(e.target.value)} />
                   </CInputGroup>
                   <CInputGroup className="mb-4">
                     <CInputGroupText>
@@ -121,28 +104,20 @@ const Login = () => {
                       value={password} onChange={(e)=>setPassword(e.target.value)} 
                     />
                   </CInputGroup>
-                  <CRow>
-                    <CCol lg="6">
-                      <CFormCheck type="radio" name="flexRadioDefault" className="text-color-white" id="flexRadioDefault1" value='0' label="The Six" checked  checked={loginType == 0? "checked" : ""} onChange={(e)=>setLoginType(e.target.value)}/>
-                    </CCol>
-                    <CCol lg="6">
-                      <CFormCheck type="radio" name="flexRadioDefault" className="text-color-white" id="flexRadioDefault2" value='1' label="other" checked={loginType == 1? "checked" : ""}  onChange={(e)=>setLoginType(e.target.value)}/>
-                    </CCol>
-                  </CRow>
-                  <CRow className='text-align-center mt-5'>
+                  <CRow className='text-align-center'>
                     <CCol >
                       <CButton  className="px-4 login-button" onClick={loginClick}>
                         Login
                       </CButton>
                     </CCol>
                   </CRow>
-                  {/* <CRow className='text-align-center'>
+                  <CRow className='text-align-center'>
                     <CCol >
                       <CButton color="link" className="px-0 forgot-password-link">
                         Forgot password?
                       </CButton>
                     </CCol>
-                  </CRow> */}
+                  </CRow>
                 </CForm>
             </CCol>
         </CRow>

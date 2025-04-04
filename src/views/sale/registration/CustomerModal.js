@@ -52,7 +52,7 @@ const CustomerModal = props => {
 						</CCol>
 					</CRow>
 
-					<CRow className='width100 mt-3 mb-5'>
+					<CRow className='width100 mt-3 '>
 						<CCol lg="1" className='text-align-center'>
 							<p className="label">Address</p>
 						</CCol>
@@ -73,15 +73,19 @@ const CustomerModal = props => {
 								<CCol lg="3">
 									<CFormInput type="text"   aria-label="sm input example" value={props.deliveryService} onChange={props.deliveryServiceChange} />
 								</CCol>
-								<CCol lg="2" className='text-align-center'>
-									<CButton color="success" style={{ width: "100px" }} onClick={props.calculateClick}>Calculate</CButton>
-								</CCol>
 							</>
 						}
 						
 						
 					</CRow>
 
+					{props.deliveryServiceSetting &&
+						<CRow className="mt-2 mb-5 text-align-center">
+							<CCol>
+								<CButton className="login-button" style={{ width: "100px" }} onClick={props.calculateClick}>Calculate</CButton>
+							</CCol>
+						</CRow>
+					}
 
 					{props.discountSetting &&
 						<CRow className='mt-4 mb-2'>
@@ -90,107 +94,73 @@ const CustomerModal = props => {
 							</CCol>
 						</CRow>
 					}
-					<CRow className={'width100  margin-left-0'}>
+			
+				<CRow className={'width100  margin-left-0 sale-voucher-web'}>
 						<CAccordion flush >
 							<CAccordionItem itemKey={1}>
 								<CAccordionHeader>View Shopping List</CAccordionHeader>
 								<CAccordionBody>
-								<CRow className='shpping-list-table-hearder'>
-									<CCol lg="1" className='text-align-center'>
-										No
-									</CCol>
-									<CCol lg="3" className='text-align-center'>
-										Product Name
-									</CCol>
-									<CCol lg="3" className='text-align-center'>
-										Price
-									</CCol>
-									<CCol lg="2" className='text-align-center'>
-										Quantity
-									</CCol>
-									<CCol lg="3" className='text-align-center'>
-										Total
-									</CCol>
-								</CRow>
+									
+										<div className='table-responsive tableFixHead'>
+											<table className='table sale-voucher-table'>
+												<thead className="text-center">
+													<tr>
+														<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="60px" >No</th>
+														<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="150px" >Product Name</th>
+														<th className="bg-body-tertiary sale-voucher-table-3" style={{verticalAlign: "middle"}} width="100px" >Price</th>
+														<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="80px" >Quantity</th>
+														<th className="bg-body-tertiary" style={{verticalAlign: "middle"}} width="120px" >Total</th>
+													</tr>
+												</thead>
+												<tbody className="text-center">
+												{props.listData.map((data,ind) => {
+													num=num+1;
+													return(
+														<tr key={ind}>
+															<td>{num}</td>
+															<td>{data.name}</td>
+															<td className=" sale-voucher-table-3">{data.price}</td>
+															<td>{data.count}</td>
+															<td>{data.total_price}</td>
+									
+														</tr>
+													)})}
+												</tbody>
+											</table>
+										</div>
+									
 
-								{props.listData.map((data,ind)=>{
-									num=num+1;
-									return(
-										<CRow className='shpping-list-table-body' key={ind}>
-											<CCol lg="1" className='text-align-center'>
-												{num}
-											</CCol>
-											<CCol lg="3" className='text-align-center'>
-												{data.name}
-											</CCol>
-											<CCol lg="3" className='text-align-center'>
-												{data.price}
-											</CCol>
-											<CCol lg="2" className='text-align-center'>
-												{data.count}
-											</CCol>
-											<CCol lg="3" className='text-align-center'>
-												{data.total_price}
+										<table className='mt-2' style={{width: "100%"}}>
+											<tbody >
+												<tr>
+													<td width="120px" >Subtotal</td>
+													<td width="80px"  >{props.totalCount}</td>
+													<td width="120px" >{props.totalPrice}</td>			
+												</tr>	
+												<tr>
+													<td width="120px">Discount</td>
+													<td width="80px" ></td>
+													<td width="120px">{props.discount > 0 ? props.discount+"%" : "-" }</td>			
+												</tr>	
+												<tr>
+													<td width="120px">Delivery Fee</td>
+													<td width="80px" ></td>
+													<td width="120px">{props.copyDeliveryService > 0 ? props.copyDeliveryService : "-"}</td>			
+												</tr>		
+												<tr style={{borderTop: "1px solid gray"}}>
+													<td width="120px">Total</td>
+													<td width="80px" ></td>
+													<td width="120px">{props.finalTotal}</td>			
+												</tr>	
+									
+											</tbody>
+										</table>
+
+										<CRow className="mt-5 mb-2 text-align-center">
+											<CCol>
+												<CButton className="login-button" style={{ width: "100px" }} onClick={props.saveClick}>Save</CButton>
 											</CCol>
 										</CRow>
-									)
-									
-								})}
-
-
-									<CRow className='shpping-list-table-total' >
-										<CCol lg="7" className='text-align-right' style={{fontWeight: "bold"}}>
-											Subtotal
-										</CCol>
-										<CCol lg="2" className='text-align-center' style={{fontWeight: "bold"}}>
-											{props.totalCount}
-										</CCol>
-										<CCol lg="3" className='text-align-center' style={{fontWeight: "bold"}}>
-											{props.totalPrice}
-										</CCol>
-									</CRow>
-
-									<CRow className='shpping-list-table-total '>
-										<CCol lg="7" className='text-align-right' style={{fontWeight: "bold"}}>
-											Discount
-										</CCol>
-										<CCol lg="2" className='text-align-center' style={{fontWeight: "bold"}}>
-											
-										</CCol>
-										<CCol lg="3" className='text-align-center' style={{fontWeight: "bold"}}>
-											{props.discount > 0 ? props.discount+"%" : "-" }
-										</CCol>
-									</CRow>
-
-									<CRow className='shpping-list-table-total payment-discount-border-bottom-line'>
-										<CCol lg="7" className='text-align-right' style={{fontWeight: "bold"}}>
-											Delivery Fee
-										</CCol>
-										<CCol lg="2" className='text-align-center' style={{fontWeight: "bold"}}>
-											
-										</CCol>
-										<CCol lg="3" className='text-align-center' style={{fontWeight: "bold"}}>
-											{props.copyDeliveryService > 0 ? props.copyDeliveryService : "-"}
-										</CCol>
-									</CRow>
-
-									<CRow className='shpping-list-table-total payment-discount-border-bottom-line2' >
-										<CCol lg="7" className='text-align-right' style={{fontWeight: "bold"}}>
-											Total
-										</CCol>
-										<CCol lg="2" className='text-align-center' style={{fontWeight: "bold"}}>
-											
-										</CCol>
-										<CCol lg="3" className='text-align-center' style={{fontWeight: "bold"}}>
-											{props.finalTotal}
-										</CCol>
-									</CRow>
-
-									<CRow className="mt-5 mb-2 text-align-center">
-										<CCol>
-											<CButton color="success" style={{ width: "100px" }} onClick={props.saveClick}>Save</CButton>
-										</CCol>
-									</CRow>
 
 
 								</CAccordionBody>
@@ -198,6 +168,7 @@ const CustomerModal = props => {
 						</CAccordion>
 
 					</CRow>
+
 		
 
 					<CRow className="width100 text-align-right mt-4" >

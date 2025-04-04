@@ -213,7 +213,7 @@ const RegistrationIndex = () => {
 				<CRow className="mt-3 mb-5">
 					<CCol lg="4"></CCol>
 					<CCol lg="6" className="text-align-center">
-							<CButton color="success"  onClick={() => saveClick()} style={{width: "100px"}}>Save</CButton>
+							<CButton className="login-button"   onClick={() => saveClick()} style={{width: "100px"}}>Save</CButton>
 					</CCol>
 					<CCol lg="2"></CCol>
 				</CRow>

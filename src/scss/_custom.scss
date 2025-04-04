@@ -25,7 +25,7 @@ td:nth-child(2),th:nth-child(2)  {
 }
 td:nth-child(3),th:nth-child(3)  { 
 	position:sticky;
-	  left:210px;
+	  left:220px;
 	  z-index:1;
 }
 // Here you can add other styles
@@ -35,38 +35,76 @@ td:nth-child(3),th:nth-child(3)  {
 .text-align-right{
 	text-align: end;
 }
-.login-background-image{
+.login-background-image {
 	background-image: url(/image/login-background.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover; /* Default for web */
 	background-position: center;
+	width: 100%;
+	height: 100vh; /* Full height of the viewport */
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+	.login-background-image {
+		background-size: contain; /* Prevents cropping */
+		background-position: top center;
+	}
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+	.login-background-image {
+		background-size: cover; /* Fill the background properly */
+		background-position: center center;
+	}
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+	.login-background-image {
+		background-size: cover; /* Fill the background properly */
+		background-position: center center;
+	}
 }
 .login-card-design{
-	background: white;
+	background: rgb(129 153 151);
 	width: 31%;
 	height: 100vh;
-	background-color: #000000;
-	box-shadow: 0px 2px 22px -7px #b3aeae;
+	background-color: rgb(151 176 173 / 80%);
+	box-shadow: 0px 10px 19px 5px #000;
 }
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+	.login-card-design {
+		width: 50%; 
+		background-color: rgb(70 75 79 / 16%);
+		box-shadow: 0px 10px 19px 5px #000;
+	}
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+	.login-card-design {
+		width: 80%; 
+		background-color: rgb(70 75 79 / 16%);
+		box-shadow: 0px 10px 19px 5px #000;
+	}
+}
+
 .title{
 	text-align: center;
 	font-family: Serif;
-	color: white;
-}
-.title2{
-	text-align: center;
-	font-family: monospace;
-	color: #ccccccdb;
-	margin-top: -13px;
+	color: #212631;
 }
 .login-button{
-	background: rgb(225 4 4);
-	border-color: rgb(225 4 4);
-	width: 120px;
+	background: #2d3236;
+	border-color: #383d41;
 	color: white;
 }
 .login-button:hover{
-	background-color: #b75636 !important;
+	background-color: #e9e7e9   !important;
 }
 .forgot-password-link{
 	color: #212631;
@@ -129,9 +167,83 @@ td:nth-child(3),th:nth-child(3)  {
 	animation-name: play60;
 	animation-iteration-count: infinite;
   }
-  
+  .plus-button{
+	  background: #1d222b;
+	  width: 25px !important;
+	  height: 25px !important;
+	  border-radius: 5px;
+	  border: 1px solid #494c53;
+	  color: #dddedf;
+  }
+  .minus-button{
+	background: #1d222b;
+	width: 25px !important;
+	height: 25px !important;
+	border-radius: 5px;
+	border: 1px solid #494c53;
+	color: #dddedf;
+ }
+
 .container-lg{
 	max-width: 100% !important;
+}
+
+.ng-return-list-table{
+	width: 1670px;
+	min-width: 100% !important;
+}
+.ng-registration-table{
+	width: 1520px;
+	min-width: 100% !important;
+}
+.import-registration-table{
+	width: 1520px;
+	min-width: 100% !important;
+}
+.instock-list-table{
+	width: 1790px;
+	min-width: 100% !important;
+}
+.ng-list-table{
+	width: 1700px;
+	min-width: 100% !important;
+}
+.ng-return-register-table{
+	width: 1710px;
+	min-width: 100% !important;
+}
+.product-list-table{
+	width: 1100px;
+	min-width: 100% !important;
+}
+.ng-detail-information-table{
+	width: 1090px;
+	min-width: 100% !important;
+}
+.ng-arrive-table{
+	width: 1400px;
+	min-width: 100% !important;
+}
+.sale-list-table{
+	width: 1150px;
+	min-width: 100% !important;
+}
+.sale-voucher-table{
+	width: 510px;
+	min-width: 100% !important;
+}
+.user-list-table{
+	width: 1070px;
+	min-width: 100% !important;
+}
+
+.sale-registration-table{
+	width: 1490px;
+	min-width: 100% !important;
+}
+.sale-list-modal-table{
+	width: 1100px;
+	min-width: 100% !important;
 }
 .margin-left-0{
 	margin-left: 0;
@@ -180,12 +292,13 @@ td:nth-child(3),th:nth-child(3)  {
 	box-shadow: 0px 0px 10px -3px gray !important;
 	border-radius: 10px;
 }
-.setting-fieldset-hearder{
+.setting-fieldset-hearder {
 	width: 200px;
 	margin-top: -30px;
-	background: #c5abff;
+	background: #3399ff;
 	border: 1px solid #c5abff;
-	color: black;
+	color: #ffffff;
+	font-weight: bold;
 }
   
 .form-check-label {
@@ -220,6 +333,17 @@ td:nth-child(3),th:nth-child(3)  {
 	font-weight: bold;
 }
 
+.payment-discount-border-bottom-line{
+	border-bottom: 2px solid rgba(128, 111, 111, 0.5294117647);
+}
+.payment-discount-border-bottom-line2{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid rgba(128, 111, 111, 0.5294117647);
+	background: black;
+	color: white;
+
+}
 @media screen {
 	.yourClassName {
 		visibility: hidden;
@@ -290,194 +414,35 @@ td:nth-child(3),th:nth-child(3)  {
 	border-radius: 10px;
   }
 
-
-// ---------------------------------------
-.btn-color{
-	background: #212631;
-	color: white;
-}
-.btn:hover {
-	color: rgb(0, 0, 0) !important;
-	background-color: rgb(221, 221, 221) !important;
-	border-color: rgb(221, 221, 221) !important;
-}
-.not-allow{
-	cursor: not-allowed !important;
-}
-.rate-card-row1{
-	background: #397584;
-	height: 50px;
-	text-align: center;
-	color: white;
-}
-
-.rate-card2-row1{
-	background: #cf5353;
-	height: 50px;
-	text-align: center;
-	color: white;
-}
-.rate-card3-row1{
-	background: #2793a2;
-	height: 50px;
-	text-align: center;
-	color: white;
-}
-
-.rate-card-row2-dashboard{
-	height: 110px;
-	text-align: center;
-}
-.account-rate-card-row2-dashboard{
-	height: 50px;
-	text-align: center;
-}
-.rate-card{
-	box-shadow: 1px 1px 6px 1px #bdbcbc !important;
-}
-.rate-card-row2-col-dashboard{
-	margin-top: 6px;
-	font-size: 20px;
-	color: #5b5b5b;
-	text-align: left !important;
-	margin-left: 5px !important;
-}
-
-.rate-card-row2{
-	height: 40px;
-	text-align: center;
-}
-
-.rate-card-row2-col{
-	margin-top: 6px;
-	font-size: 20px;
-	color: #5b5b5b;
-	font-weight: bold;
-}
-
-.account-card-header1 .card-header{
-	background: #546fed !important;
-	height: 100px !important;
-	font-size: 40px;
-	font-family: monospace;
-	color: white !important;
-}
-
-.account-card-header2 .card-header{
-	background: #2bb2a6 !important;
-	height: 100px !important;
-	font-size: 40px;
-	font-family: monospace;
-	color: white !important;
-}
-
-.card-header1 .card-header {
-	background: #bba035 !important;
-}
-.card-header2 .card-header {
-	background: #546fed !important;
-}
-.card-header3 .card-header {
-	background: #2bb2a6 !important;
-}
-
-.admin-card-header{
-	background: #d9d9d9 !important;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-.top-left-right-radius-5{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-.admin-card-body{
-	font-size: 15px;
-	margin-left: 5px;
-	color: #000000;
-}
-
-.card-shadow{
-	box-shadow: 1px 1px 7px 0px gray;
-}
-.transaction-list-table{
-	width: 1950px;
-	min-width: 100% !important;
-}
-
-.match-list-table{
-	width: 1350px;
-	min-width: 100% !important;
-}
-
-.custom-header {
-	background-color: #00456d !important; /* Blue */
-	color: white !important; /* White text */
-	text-align: center;
-}
-.history-table{
-	width: 760px;
-	min-width: 100% !important;
-}
-[data-coreui-theme="dark"] {
-	display: none !important;
-  }
-  
-  [data-coreui-theme="light"] {
-	display: block;
-  }
-  .header.header-sticky {
+.header{
 	background: #212631 !important;
 }
-.header-toggler{
+.header-toggler {
 	color: white !important;
 }
-.white-color{
-	color: white !important;
-}
-.dashboard-card2-body-border-top{
-	border-top: 1px solid #bdbdbd !important;
+.center-web-phone{
+	text-align: center;
 }
 
-.text-color-white{
+@media (max-width: 992px) {
+	.sale-voucher-table-3{
+		left: 0 !important;
+		z-index: 0 !important;
+	}
+	.center-web-phone{
+		text-align: left !important;
+	}
+	.center-web-phone-btn{
+		margin-top: 10px;
+	}
+}
+
+.bill-sale-card {
+	color: white !important;
+}
+.bg-body-tertiary{
+	background-color: #2a303d !important;
 	color: white !important;
 }
 
-.win{
-	font-weight: 400;
-	background: #3fe863;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 13px;
-	font-size: 15px;
-	color: #050505;
-}
-.lose{
-	font-weight: 400;
-	background: #e55c5c;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 13px;
-	font-size: 15px;
-	color: #ffffff;
-}
-.draw{
-	font-weight: 400;
-	background: #e4e4e4;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 13px;
-	font-size: 15px;
-	color: #050505;
-}
 
-.account-list-table{
-	width: 940px;
-	min-width: 100% !important;
-}
-.account-card-header3 .card-header {
-	background: #85b348 !important;
-	height: 100px !important;
-	font-size: 40px;
-	font-family: monospace;
-	color: white !important;
-}

@@ -310,8 +310,8 @@ const ListIndex = () => {
 			<CCol lg="4">
 				<CFormInput type="text"   aria-label="sm input example"  value={name}  onChange={(e) => setName(e.target.value)}  />
 			</CCol><CCol lg="1"></CCol>
-			<CCol lg="2" className="text-align-center">
-				<p className="label" style={{marginLeft: "30px"}}>Address</p>
+			<CCol lg="2">
+				<p className="label" >Address</p>
 			</CCol>
 			<CCol lg="4">
 				<CFormInput type="text"   aria-label="sm input example" value={address}    onChange={(e) => setAddress(e.target.value)}  />
@@ -319,7 +319,7 @@ const ListIndex = () => {
 		</CRow>
 		<CRow className="mt-5 mb-5 text-align-center">
 			<CCol>
-					<CButton color="success" style={{width: "100px"}}  onClick={() => searchClick()}>Search</CButton>
+					<CButton className="login-button"  style={{width: "100px"}}  onClick={() => searchClick()}>Search</CButton>
 			</CCol>
 		</CRow>
 
