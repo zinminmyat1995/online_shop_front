@@ -38,7 +38,7 @@ export const ApiRequest = async (value) => {
   );
 
   // path = "http://127.0.0.1:8000/api";
-  path = "https://online-shop-back-eight.vercel.app/v1";
+  path = "https://online-shop-back-flax.vercel.app/v1";
 
   // to decide responseType is exists or not
   value.type !== undefined ? (responseType = value.type) : (responseType = "");
