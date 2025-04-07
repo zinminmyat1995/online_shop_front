@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import classNames from 'classnames'
 
 import {
@@ -18,8 +18,12 @@ import {
   CTableHead,
   CTableHeaderCell,
   CTableRow,
+  CWidgetStatsA
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
+import { cilArrowBottom, cilArrowTop, cilOptions } from '@coreui/icons'
+import ApiPath from "../common/ApiPath";
+import { ApiRequest } from "../common/ApiRequest";
 import {
   cibCcAmex,
   cibCcApplePay,
@@ -55,6 +59,57 @@ import WidgetsDropdown from '../widgets/WidgetsDropdown'
 import MainChart from './MainChart'
 
 const Dashboard = () => {
+  const [loginID , setLoginID ] = useState(localStorage.getItem('LOGIN_ID'));
+  const [loading, setLoading] = useState(false);  // for loading
+  const [allData, setAllData ] = useState([]);
+
+
+  useEffect(() => {
+    (async () => {
+      if(localStorage.getItem("LOGIN_ID") == undefined){
+        window.location.href="/login";
+      }
+      setLoading(true);
+      await formload();
+    })();
+  }, []);
+
+
+  let formload =async () => {
+    setLoading(true);
+    let object = {
+      url: ApiPath.DashboardAllData,
+      method: 'get',
+      params: {
+        "login_id": loginID
+      }
+    }
+	
+    let response = await ApiRequest(object);
+    if (response.flag === false) {
+      setLoading(false);
+    } else {
+      if (response.data.status === 'OK') {
+        setAllData(response.data.data);setLoading(false);
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   const progressExample = [
     { title: 'Visits', value: '29.703 Users', percent: 40, color: 'success' },
     { title: 'Unique', value: '24.093 Users', percent: 20, color: 'info' },
@@ -176,9 +231,129 @@ const Dashboard = () => {
     },
   ]
 
+  console.log(allData['current_day_sale'])
   return (
     <>
-      <WidgetsDropdown className="mb-4" />
+      <CRow className={"mb-4"} xs={{ gutter: 4 }}>
+        <CCol sm={6} xl={4} xxl={3}>
+          <CWidgetStatsA
+            value={
+              <>
+                Today
+                <span className="fs-6 fw-normal">
+                  (-12.4% <CIcon icon={cilArrowBottom} />)
+                </span>
+              
+              </>
+            }
+            title={
+              <>
+                {allData['current_day_sale'] != null &&
+                  allData['current_day_sale'].map((data, index) => (
+                    <div className="dashboard-card mt-1 mb-1" key={index}>
+                      {data.payment_name} - {data.total_price}
+                    </div>
+                  ))
+                }
+                 {allData['current_day_sale'] != null &&
+                      <div className="dashboard-card mt-1 mb-1">
+                        Total - {allData['day_total']}
+                      </div>
+                  }
+              </>
+            }
+            style={{background: "rgb(42 48 61) ", color: "white"}}
+          />
+        </CCol>
+        <CCol sm={6} xl={4} xxl={3}>
+          <CWidgetStatsA
+            value={
+              <>
+                Month
+                <span className="fs-6 fw-normal">
+                  (-12.4% <CIcon icon={cilArrowBottom} />)
+                </span>
+              
+              </>
+            }
+            title={
+              <>
+                {allData['current_month_sale'] != null &&
+                  allData['current_month_sale'].map((data, index) => (
+                    <div className="dashboard-card mt-1 mb-1" key={index}>
+                      {data.payment_name} - {data.total_price}
+                    </div>
+                  ))
+                }
+                 {allData['current_month_sale'] != null &&
+                      <div className="dashboard-card mt-1 mb-1">
+                        Total - {allData['month_total']}
+                      </div>
+                  }
+              </>
+            }
+            style={{background: "rgb(42 48 61) ", color: "white"}}
+          />
+        </CCol>
+        <CCol sm={6} xl={4} xxl={3}>
+         <CWidgetStatsA
+            value={
+              <>
+                Year
+                <span className="fs-6 fw-normal">
+                  (-12.4% <CIcon icon={cilArrowBottom} />)
+                </span>
+              
+              </>
+            }
+            title={
+              <>
+                {allData['current_year_sale'] != null &&
+                  allData['current_year_sale'].map((data, index) => (
+                    <div className="dashboard-card mt-1 mb-1" key={index}>
+                      {data.payment_name} - {data.total_price}
+                    </div>
+                  ))
+                }
+                 {allData['current_year_sale'] != null &&
+                      <div className="dashboard-card mt-1 mb-1">
+                        Total - {allData['year_total']}
+                      </div>
+                  }
+              </>
+            }
+            style={{background: "rgb(42 48 61) ", color: "white"}}
+          />
+        </CCol>
+        <CCol sm={6} xl={4} xxl={3}>
+          {/* <CWidgetStatsA
+            color="primary"
+            value={
+              <>
+                26K{' '}
+                <span className="fs-6 fw-normal">
+                  (-12.4% <CIcon icon={cilArrowBottom} />)
+                </span>
+                
+              </>
+            }
+            title={
+              <>
+                Users
+                <div className="fs-6 mt-2">Additional text under the title</div>
+              </>
+            }
+          /> */}
+        </CCol>
+      </CRow>
+
+
+
+
+
+
+{/* 
+
       <CCard className="mb-4">
         <CCardBody>
           <CRow>
@@ -379,7 +554,7 @@ const Dashboard = () => {
             </CCardBody>
           </CCard>
         </CCol>
-      </CRow>
+      </CRow> */}
     </>
   )
 }

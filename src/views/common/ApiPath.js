@@ -56,5 +56,7 @@ export default {
     WarehouseDelete: `warehouse/instock-delete` ,
 
     HistorySearch: `history/search` ,
+
+    DashboardAllData: `dashboard/all-data`
    
 };
