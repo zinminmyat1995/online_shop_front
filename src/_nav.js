@@ -7,11 +7,10 @@ import {
   cilCursor,
   cilDescription,
   cilDrop,
-  cilNotes,
   cilPencil,
   cilPuzzle,
   cilSpeedometer,
-  cilStar,
+  cilMemory,
   cilUser,
   cilApps,
   cibMicrosoft,
@@ -195,7 +194,16 @@ const _nav = [
     to: '/history',
     icon: <CIcon icon={cilHistory} customClassName="nav-icon" />,
   },
-
+  {
+    component: CNavTitle,
+    name: 'Storage',
+  },
+  {
+    component: CNavItem,
+    name: 'Database Storage',
+    to: '/storage',
+    icon: <CIcon icon={cilMemory} customClassName="nav-icon" />,
+  },
 
 
 

@@ -20,7 +20,7 @@ const NGDetailInformation = React.lazy(() => import('./views/ng/ng-detail-inform
 const SaleRegistration = React.lazy(() => import('./views/sale/registration/RegistrationIndex'))
 const SaleList = React.lazy(() => import('./views/sale/list/ListIndex'))
 const Setting = React.lazy(() => import('./views/setting/setting/SettingIndex'))
-
+const Storage = React.lazy(() => import('./views/storage/storage/StorageIndex'))
 const History = React.lazy(() => import('./views/history/history/HistoryIndex'))
 
 
@@ -96,7 +96,7 @@ const routes = [
   { path: '/setting', name: 'Setting', exact: true, element: Setting },
   { path: '/warehouse/instock', name: 'Instock', exact: true, element: Instock },
   { path: '/history', name: 'History', exact: true, element: History },
-  
+  { path: '/storage', name: 'Storage', exact: true, element: Storage },
 
 
   // { path: '/theme', name: 'Theme', element: Colors, exact: true },

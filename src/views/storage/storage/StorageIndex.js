@@ -79,58 +79,28 @@ const StorageIndex = () => {
 				<h3>Storage Setting</h3>
 				<hr/>
 				<Message success={success} error={error} />
-				{/* <Confirmation
-					show={show}
-					content={content}
-					type={type}
-					saveOK={saveOK}
-					deleteOK={deleteOK}
-					okButton={"Ok"}
-					cancel={cancelClick}
-					cancelButton={"Cancel"}
-				/> */}
 	
-		<CRow className="mt-5">
-			<CCol lg="12" className="">
-				<h5>Database Storage</h5>
-			</CCol>
-		</CRow>
-		<CRow className="mt-1">
-			<CCol lg="12" className="">
-				<h6 style={{color: "#363636", fontFamily: "math"}}>The database has <span style={{color: "red", fontWeight: "bold"}}>5</span>GB of free space, and we have already used <span style={{color: "blue", fontWeight: "bold"}}>{realStorage}</span>MB</h6>
-			</CCol>
-		</CRow>
-		<CRow className="mt-3">
-			<CCol lg="12" className="text-align-center">
-				<CProgress value={storage}>{storage}%</CProgress>
-			</CCol>
-		</CRow>
-		<CRow className="">
-				<CCol lg="12" className="text-align-right">
-					<h6 style={{color: "red", fontStyle: "italic"}}>5GB</h6>
-				</CCol>
-		</CRow>
-		
-				{/* <CRow className="mt-5 setting-fieldset">
-					<CCol lg="2" className="text-align-center">
-						<CButton className="setting-fieldset-hearder">Discount Setting</CButton>
-					</CCol>
-					<CRow className="mt-5 mb-5">
-						<CProgress value={25}>25%</CProgress>
-						<CCol lg="2" className="display-flex">
-							<CButton color="success" style={{ width: "100px" }}>Save</CButton>
+					<CRow className="mt-5">
+						<CCol lg="12" className="">
+							<h5>Database Storage</h5>
 						</CCol>
 					</CRow>
-				</CRow> */}
-
-
-
-
-
-
-
-
-		
+					<CRow className="mt-1">
+						<CCol lg="12" className="">
+							<h6 style={{color: "#363636", fontFamily: "math"}}>The database has <span style={{color: "red", fontWeight: "bold"}}>5</span>GB of free space, and we have already used <span style={{color: "blue", fontWeight: "bold"}}>{realStorage}</span>MB</h6>
+						</CCol>
+					</CRow>
+					<CRow className="mt-3">
+						<CCol lg="12" className="text-align-center">
+							<CProgress value={Number(storage)}>{storage}%</CProgress>
+						</CCol>
+					</CRow>
+					<CRow className="">
+							<CCol lg="12" className="text-align-right">
+								<h6 style={{color: "red", fontStyle: "italic"}}>5GB</h6>
+							</CCol>
+					</CRow>
+	
 			  </CForm>
 		</CCol>
 	</CRow>
