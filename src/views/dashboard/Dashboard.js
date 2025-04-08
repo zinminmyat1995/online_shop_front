@@ -360,28 +360,77 @@ const Dashboard = () => {
       </CRow>
 
 
-
-            <CRow>
-            <CCol xs={6}>
-                <CCard className="mb-4">
-                  <CCardHeader>Bar Chart</CCardHeader>
-                  <CCardBody>
-                    <CChartBar
-                      data={{
-                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
-                        datasets: [
-                          {
-                            label: 'Monthly Sales',
-                            data: allData['bar_data'] != null ? allData['bar_data'][0] : [],
-                          },
-                        ],
-                      }}
-                      labels="months"
-                    />
-                  </CCardBody>
-                </CCard>
-              </CCol>
+      {window.innerWidth > 992 && (
+            <CRow className="dashboard-chart-web">
               <CCol xs={6}>
+                  <CCard className="mb-4">
+                    <CCardHeader>Bar Chart</CCardHeader>
+                    <CCardBody>
+                      <CChartBar
+                        data={{
+                          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                          datasets: [
+                            {
+                              label: 'Monthly Sales',
+                              data: allData['bar_data'] != null ? allData['bar_data'][0] : [],
+                            },
+                          ],
+                        }}
+                        labels="months"
+                      />
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+                <CCol xs={6}>
+                  <CCard className="mb-4">
+                    <CCardHeader>Pie Chart</CCardHeader>
+                    <CCardBody className="d-flex justify-content-center">
+                      <CChartPie
+                        style={{ width: '285px', height: '285px' }}
+                        data={{
+                          labels: ['Remain', 'NG', 'Sale'],
+                          datasets: [
+                            {
+                              data: allData['pie_data'] != null ? allData['pie_data'] : [],
+                              backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                              hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                            },
+                          ],
+                        }}
+                      />
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+            </CRow>
+
+        )}
+
+      {window.innerWidth < 993 && (
+        <>
+            <CRow className="dashboard-chart-phone">
+              <CCol xs={12}>
+                  <CCard className="mb-4">
+                    <CCardHeader>Bar Chart</CCardHeader>
+                    <CCardBody>
+                      <CChartBar
+                        data={{
+                          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                          datasets: [
+                            {
+                              label: 'Monthly Sales',
+                              data: allData['bar_data'] != null ? allData['bar_data'][0] : [],
+                            },
+                          ],
+                        }}
+                        labels="months"
+                      />
+                    </CCardBody>
+                  </CCard>
+                </CCol>
+                        
+            </CRow>
+            <CRow className="dashboard-chart-phone">
+              <CCol xs={12}>
                 <CCard className="mb-4">
                   <CCardHeader>Pie Chart</CCardHeader>
                   <CCardBody className="d-flex justify-content-center">
@@ -401,13 +450,9 @@ const Dashboard = () => {
                   </CCardBody>
                 </CCard>
               </CCol>
-            </CRow>
+          </CRow>
 
-
-
-
-
-
+        </>)}
 
 
 
