@@ -20,6 +20,15 @@ import {
   CTableRow,
   CWidgetStatsA
 } from '@coreui/react'
+import {
+  CChartBar,
+  CChartDoughnut,
+  CChartLine,
+  CChartPie,
+  CChartPolarArea,
+  CChartRadar,
+} from '@coreui/react-chartjs'
+import { DocsCallout } from 'src/components'
 import CIcon from '@coreui/icons-react'
 import { cilArrowBottom, cilArrowTop, cilOptions } from '@coreui/icons'
 import ApiPath from "../common/ApiPath";
@@ -53,7 +62,7 @@ import avatar3 from 'src/assets/images/avatars/3.jpg'
 import avatar4 from 'src/assets/images/avatars/4.jpg'
 import avatar5 from 'src/assets/images/avatars/5.jpg'
 import avatar6 from 'src/assets/images/avatars/6.jpg'
-
+import Loading from "../common/Loading"
 import WidgetsBrand from '../widgets/WidgetsBrand'
 import WidgetsDropdown from '../widgets/WidgetsDropdown'
 import MainChart from './MainChart'
@@ -63,6 +72,8 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);  // for loading
   const [allData, setAllData ] = useState([]);
 
+
+  const random = () => Math.round(Math.random() * 100)
 
   useEffect(() => {
     (async () => {
@@ -231,9 +242,10 @@ const Dashboard = () => {
     },
   ]
 
-  console.log(allData['current_day_sale'])
+
   return (
     <>
+      <Loading start={loading} />
       <CRow className={"mb-4"} xs={{ gutter: 4 }}>
         <CCol sm={6} xl={4} xxl={3}>
           <CWidgetStatsA
@@ -346,6 +358,83 @@ const Dashboard = () => {
           /> */}
         </CCol>
       </CRow>
+
+
+
+            <CRow>
+            <CCol xs={6}>
+                <CCard className="mb-4">
+                  <CCardHeader>Bar Chart</CCardHeader>
+                  <CCardBody>
+                    <CChartBar
+                      data={{
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                        datasets: [
+                          {
+                            label: 'Monthly Sales',
+                            data: allData['bar_data'] != null ? allData['bar_data'][0] : [],
+                          },
+                        ],
+                      }}
+                      labels="months"
+                    />
+                  </CCardBody>
+                </CCard>
+              </CCol>
+              <CCol xs={6}>
+                <CCard className="mb-4">
+                  <CCardHeader>Pie Chart</CCardHeader>
+                  <CCardBody className="d-flex justify-content-center">
+                    <CChartPie
+                      style={{ width: '285px', height: '285px' }}
+                      data={{
+                        labels: ['Remain', 'NG', 'Sale'],
+                        datasets: [
+                          {
+                            data: allData['pie_data'] != null ? allData['pie_data'] : [],
+                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                            hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                          },
+                        ],
+                      }}
+                    />
+                  </CCardBody>
+                </CCard>
+              </CCol>
+            </CRow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
