@@ -159,7 +159,7 @@ const RegistrationIndex = () => {
 				let res = response['data']['data'];
 				setDiscount(res['discount_percent'] > 0? res['discount_percent'] : 0);setDiscountSetting(res['discount_percent'] > 0? true : false);
 				setPaymentData(res['payment']);setCusPayment(res['payment'][0]['id']);
-				setDeliveryServiceSetting(res['delivery_service_flag'] > 0 ? true : false);
+				setDeliveryServiceSetting(res['delivery_service'] > 0 ? true : false);
 				setPrintServiceSetting(res['print_service'] > 0 ? true : false);
 			} else {
 				setError([response.data.message]); setSuccess([]);setLoading(false);
