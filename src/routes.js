@@ -1,6 +1,22 @@
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
+const MenuRegistration = React.lazy(() => import('./views/menu/registration/RegistrationIndex'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const ProductRegistration = React.lazy(() => import('./views/product/registration/RegistrationIndex'))
 const ProductList = React.lazy(() => import('./views/product/list/ListIndex'))
 const ProductImport = React.lazy(() => import('./views/product/import/ImportIndex'))
@@ -76,6 +92,24 @@ const History = React.lazy(() => import('./views/history/history/HistoryIndex'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/menu/register', name: 'Menu Registration', element: MenuRegistration },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   { path: '/user', name: 'User', exact: true },
   { path: '/user/register', name: 'Registration', element: UserRegistration },
   { path: '/user/list', name: 'List', element: UserList },

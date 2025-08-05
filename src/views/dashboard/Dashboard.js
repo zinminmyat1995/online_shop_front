@@ -80,8 +80,8 @@ const Dashboard = () => {
       if(localStorage.getItem("LOGIN_ID") == undefined){
         window.location.href="/login";
       }
-      setLoading(true);
-      await formload();
+      // setLoading(true);
+      // await formload();
     })();
   }, []);
 

@@ -1,5 +1,5 @@
 body {
-  background-color: var(--cui-tertiary-bg);
+  background-color: #fff !important;
 }
 
 .wrapper {
@@ -49,6 +49,8 @@ body {
 
 .footer {
   min-height: calc(3rem + 1px); // stylelint-disable-line function-disallowed-list
+  background: #ffffff;
+  border-top: unset !important;
 }
 
 @if $enable-dark-mode {

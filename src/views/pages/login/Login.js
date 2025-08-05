@@ -81,7 +81,7 @@ const Login = () => {
         <CRow>
             <CCol md={5} className='login-card-design'>
               <CForm style={{marginTop: "50%"}}>
-                  <h1 className='title'>Online Shop</h1>
+                  <h1 className='title'>Restaurant</h1>
                   <div style={{marginLeft: "12px",marginRight: "12px"}}>
                     <Message success={success} error={error} />
                   </div>

@@ -1,5 +1,204 @@
 // for table
 
+.sidebar-dark {
+    --cui-body-bg: #ffffff !important;
+	--cui-tertiary-color: #636363 !important;
+    --cui-border-color: #ffffff !important;
+	box-shadow: 0px 0px 4px 1px #f1e8e8 !important;
+}
+.sidebar-nav .nav-link.active
+{   color: #ffffff !important;
+    background: rgb(39 96 120) !important;
+}
+
+.sidebar-nav .nav-link {
+    color: #636363 !important;
+}
+
+.sidebar-nav .nav-link:hover {
+	color: #ffffff !important;
+	text-decoration: none;
+	background: rgb(39 96 120) !important;
+}
+
+.header {
+    background: #276078 !important;
+}
+.sidebar-header {
+	background: #276078 !important;
+	margin-right: -8px !important;
+}
+
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+	.login-background-image {
+		background-size: contain; /* Prevents cropping */
+		background-position: top center;
+	}
+	.sidebar-header {
+		margin-right: 0 !important;
+	}
+	.sidebar-dark {
+		box-shadow: unset !important;
+	}
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+	.login-background-image {
+		background-size: cover; /* Fill the background properly */
+		background-position: center center;
+	}
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+	.login-background-image {
+		background-size: cover; /* Fill the background properly */
+		background-position: center center;
+	}
+}
+.login-card-design{
+	// background: rgb(129 153 151);
+	width: 31%;
+	height: 100vh;
+	// background-color: rgb(151 176 173 / 80%);
+	box-shadow: 0px 10px 19px 5px #000;
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
+	.login-card-design {
+		width: 50%; 
+		background-color: rgb(70 75 79 / 16%);
+		box-shadow: 0px 10px 19px 5px #000;
+	}
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+	.login-card-design {
+		width: 80%; 
+		background-color: rgb(70 75 79 / 16%);
+		box-shadow: 0px 10px 19px 5px #000;
+	}
+}
+
+
+
+.fieldset-container {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.legend-style {
+  font-weight: bold;
+  position: relative;
+  padding: 0 10px;
+  top: -30px;
+  background: #fff;
+  margin: 0 auto;
+  width: fit-content;
+}
+.legend-style {
+  position: relative;
+  z-index: 1;
+}
+.plus-button{
+	  background: rgb(39 96 120) ;
+	  width: 25px !important;
+	  height: 25px !important;
+	  border-radius: 5px;
+	  border: 1px solid #494c53;
+	  color: #dddedf;
+  }
+  .minus-button{
+	background: rgb(39 96 120) ;
+	width: 25px !important;
+	height: 25px !important;
+	border-radius: 5px;
+	border: 1px solid #494c53;
+	color: #dddedf;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .tableFixHead {
 	overflow-y: auto;
 	max-height: 500px;
@@ -44,54 +243,6 @@ td:nth-child(3),th:nth-child(3)  {
 	height: 100vh; /* Full height of the viewport */
 }
 
-/* For tablets and smaller screens */
-@media (max-width: 1024px) {
-	.login-background-image {
-		background-size: contain; /* Prevents cropping */
-		background-position: top center;
-	}
-}
-
-/* For mobile screens */
-@media (max-width: 768px) {
-	.login-background-image {
-		background-size: cover; /* Fill the background properly */
-		background-position: center center;
-	}
-}
-
-/* For very small screens */
-@media (max-width: 480px) {
-	.login-background-image {
-		background-size: cover; /* Fill the background properly */
-		background-position: center center;
-	}
-}
-.login-card-design{
-	background: rgb(129 153 151);
-	width: 31%;
-	height: 100vh;
-	background-color: rgb(151 176 173 / 80%);
-	box-shadow: 0px 10px 19px 5px #000;
-}
-
-/* For tablets and smaller screens */
-@media (max-width: 1024px) {
-	.login-card-design {
-		width: 50%; 
-		background-color: rgb(70 75 79 / 16%);
-		box-shadow: 0px 10px 19px 5px #000;
-	}
-}
-
-/* For mobile screens */
-@media (max-width: 768px) {
-	.login-card-design {
-		width: 80%; 
-		background-color: rgb(70 75 79 / 16%);
-		box-shadow: 0px 10px 19px 5px #000;
-	}
-}
 
 .title{
 	text-align: center;
@@ -99,12 +250,12 @@ td:nth-child(3),th:nth-child(3)  {
 	color: #212631;
 }
 .login-button{
-	background: #2d3236;
-	border-color: #383d41;
+	background: rgb(39 96 120);
+	border-color: rgb(39 96 120);
 	color: white;
 }
 .login-button:hover{
-	background-color: #e9e7e9   !important;
+	background-color: rgb(53, 161, 207)   !important;
 }
 .forgot-password-link{
 	color: #212631;
@@ -167,22 +318,7 @@ td:nth-child(3),th:nth-child(3)  {
 	animation-name: play60;
 	animation-iteration-count: infinite;
   }
-  .plus-button{
-	  background: #1d222b;
-	  width: 25px !important;
-	  height: 25px !important;
-	  border-radius: 5px;
-	  border: 1px solid #494c53;
-	  color: #dddedf;
-  }
-  .minus-button{
-	background: #1d222b;
-	width: 25px !important;
-	height: 25px !important;
-	border-radius: 5px;
-	border: 1px solid #494c53;
-	color: #dddedf;
- }
+  
 
 .container-lg{
 	max-width: 100% !important;
@@ -414,9 +550,6 @@ td:nth-child(3),th:nth-child(3)  {
 	border-radius: 10px;
   }
 
-.header{
-	background: #212631 !important;
-}
 .header-toggler {
 	color: white !important;
 }

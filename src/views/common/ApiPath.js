@@ -1,6 +1,33 @@
 export default {
 
     Login: `user/login`,
+    MenuTypeAdd: `menu-type/register`,
+    MenuTypeSearch: `menu-type/search`,
+    MenuTypeRemove: `menu-type/remove`,
+    MeatTypeAdd: `meat-type/register`,
+    MeatTypeSearch: `meat-type/search`,
+    MeatTypeRemove: `meat-type/remove`,
+    MenuRegister: `menu/register`,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     UserRegistration: `user/register`,
     UserListSearch: `user-list/search`,
     UserListUpdate: `user-list/update`,

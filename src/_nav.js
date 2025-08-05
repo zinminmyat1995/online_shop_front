@@ -18,7 +18,8 @@ import {
   cilXCircle,
   cilSettings,
   cilHome,
-  cilHistory
+  cilHistory,
+  cilFastfood
 } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
@@ -35,127 +36,149 @@ const _nav = [
 
   {
     component: CNavTitle,
-    name: 'Sale',
+    name: 'Menu',
   },
   {
     component: CNavGroup,
-    name: 'Sale',
-    to: '/sale',
-    icon: <CIcon icon={cilCart} customClassName="nav-icon" />,
+    name: 'Menu',
+    icon: <CIcon icon={cilFastfood} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Registration',
-        to: '/sale/registration',
+        to: '/menu/register',
       },
       {
         component: CNavItem,
         name: 'List',
-        to: '/sale/list',
-      },
-    ],
-  },
-  {
-    component: CNavTitle,
-    name: 'Warehouse',
-  },
-  {
-    component: CNavGroup,
-    name: 'Warehouse',
-    to: '/warehouse',
-    icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Instock',
-        to: '/warehouse/instock',
-      }
-    ],
-  },
-
-  {
-    component: CNavTitle,
-    name: 'Product',
-  },
-  {
-    component: CNavGroup,
-    name: 'Product',
-    to: '/product',
-    icon: <CIcon icon={cibMicrosoft} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Import',
-        to: '/product/import',
-      },
-      {
-        component: CNavItem,
-        name: 'Registration',
-        to: '/product/registration',
-      },
-      {
-        component: CNavItem,
-        name: 'List',
-        to: '/product/list',
-      }
-    ],
-  },
-
-
-
-  {
-    component: CNavTitle,
-    name: 'Not Good',
-  },
-  {
-    component: CNavGroup,
-    name: 'Not Good',
-    to: '/product',
-    icon: <CIcon icon={cilXCircle} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'NG Registration',
-        to: '/product/ng-registration',
-      },
-      {
-        component: CNavItem,
-        name: 'NG List',
-        to: '/product/ng-list',
-      },
-      {
-        component: CNavItem,
-        name: 'NG Return',
-        to: '/product/ng-return',
-      },
-      {
-        component: CNavItem,
-        name: 'NG Return List',
-        to: '/product/ng-return-list',
-      },
-      ,
-      {
-        component: CNavItem,
-        name: 'NG Arrive',
-        to: '/product/ng-arrive',
-      },
-      {
-        component: CNavItem,
-        name: 'NG Arrive List',
-        to: '/product/ng-arrive-list',
-      },
-      {
-        component: CNavItem,
-        name: 'NG Detail Information',
-        to: '/product/ng-detail-information',
+        to: '/menu/list',
       },
     ],
   },
 
-  {
-    component: CNavTitle,
-    name: 'User',
-  },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Sale',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Sale',
+  //   to: '/sale',
+  //   icon: <CIcon icon={cilCart} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'Registration',
+  //       to: '/sale/registration',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'List',
+  //       to: '/sale/list',
+  //     },
+  //   ],
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Warehouse',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Warehouse',
+  //   to: '/warehouse',
+  //   icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'Instock',
+  //       to: '/warehouse/instock',
+  //     }
+  //   ],
+  // },
+
+  // {
+  //   component: CNavTitle,
+  //   name: 'Product',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Product',
+  //   to: '/product',
+  //   icon: <CIcon icon={cibMicrosoft} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'Import',
+  //       to: '/product/import',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'Registration',
+  //       to: '/product/registration',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'List',
+  //       to: '/product/list',
+  //     }
+  //   ],
+  // },
+
+
+
+  // {
+  //   component: CNavTitle,
+  //   name: 'Not Good',
+  // },
+  // {
+  //   component: CNavGroup,
+  //   name: 'Not Good',
+  //   to: '/product',
+  //   icon: <CIcon icon={cilXCircle} customClassName="nav-icon" />,
+  //   items: [
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Registration',
+  //       to: '/product/ng-registration',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG List',
+  //       to: '/product/ng-list',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Return',
+  //       to: '/product/ng-return',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Return List',
+  //       to: '/product/ng-return-list',
+  //     },
+  //     ,
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Arrive',
+  //       to: '/product/ng-arrive',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Arrive List',
+  //       to: '/product/ng-arrive-list',
+  //     },
+  //     {
+  //       component: CNavItem,
+  //       name: 'NG Detail Information',
+  //       to: '/product/ng-detail-information',
+  //     },
+  //   ],
+  // },
+
+  // {
+  //   component: CNavTitle,
+  //   name: 'User',
+  // },
   // {
   //   component: CNavItem,
   //   name: 'Registration',
@@ -168,42 +191,42 @@ const _nav = [
   //   to: '/user/list',
   //   icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
   // },
-  {
-    component: CNavItem,
-    name: 'Reset Password',
-    to: '/user/reset-password',
-    icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavTitle,
-    name: 'Setting',
-  },
-  {
-    component: CNavItem,
-    name: 'Setting',
-    to: '/setting',
-    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavTitle,
-    name: 'History',
-  },
-  {
-    component: CNavItem,
-    name: 'History',
-    to: '/history',
-    icon: <CIcon icon={cilHistory} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavTitle,
-    name: 'Storage',
-  },
-  {
-    component: CNavItem,
-    name: 'Database Storage',
-    to: '/storage',
-    icon: <CIcon icon={cilMemory} customClassName="nav-icon" />,
-  },
+  // {
+  //   component: CNavItem,
+  //   name: 'Reset Password',
+  //   to: '/user/reset-password',
+  //   icon: <CIcon icon={cilApps} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Setting',
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: 'Setting',
+  //   to: '/setting',
+  //   icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: 'History',
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: 'History',
+  //   to: '/history',
+  //   icon: <CIcon icon={cilHistory} customClassName="nav-icon" />,
+  // },
+  // {
+  //   component: CNavTitle,
+  //   name: 'Storage',
+  // },
+  // {
+  //   component: CNavItem,
+  //   name: 'Database Storage',
+  //   to: '/storage',
+  //   icon: <CIcon icon={cilMemory} customClassName="nav-icon" />,
+  // },
 
 
 
